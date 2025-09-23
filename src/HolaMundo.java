@@ -10,8 +10,9 @@ public class HolaMundo {
         String nombre = sc.nextLine(); // Introducir un texto
 
         System.out.println("Hola " + nombre); //Imprimir saludo + nombre
+
     }
 }
 
 
-//Prueba
+//Prueba (Hola Mundo)

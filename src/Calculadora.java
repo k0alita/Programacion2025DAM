@@ -25,7 +25,6 @@ public class Calculadora {
         } else {
             System.out.println("Operación no válida.");
         }
-
         scanner.close();
     }
 }
