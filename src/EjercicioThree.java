@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class EjercicioThree {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce la cantidad de numeros: ");
         int cantNums = sc.nextInt();
@@ -12,10 +12,12 @@ public class EjercicioThree {
         }
 
         for (int i = 1; i < cantNums + 1; i++) {
-            if (i % 2 == 0) {
-                System.out.println("El numero " + i + " es par");
-            } else if (i % 2 != 0){
-                System.out.println("El numero "  + i + " es impar");
+            System.out.print("Introduce el número " + i + ": ");
+            double num = sc.nextDouble();
+            if (num % 2 == 0) {
+                System.out.println("El numero " + num + " es par");
+            } else{
+                System.out.println("El numero "  + num + " es impar");
             }
         }
     }

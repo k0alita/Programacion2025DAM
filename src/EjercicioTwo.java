@@ -7,7 +7,7 @@ public class EjercicioTwo {
         int num1 = sc.nextInt();
 
         while (num1 >= 11) {
-            System.out.println("Introduce una cantidad entre 0 y 10 ");
+            System.out.println("Numero invalido - Introduce una cantidad entre 0 y 10 ");
             num1 = sc.nextInt();
         }
 
