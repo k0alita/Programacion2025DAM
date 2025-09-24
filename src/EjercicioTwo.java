@@ -5,9 +5,15 @@ public class EjercicioTwo {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce un numero");
         int num1 = sc.nextInt();
-        for (int i = 1; i < 11 ; i++) {
+
+        while (num1 >= 11) {
+            System.out.println("Introduce una cantidad entre 0 y 10 ");
+            num1 = sc.nextInt();
+        }
+
+        for (int i = 1; i < 11; i++) {
             int resultado = num1 * i;
-            System.out.println(num1 + " x " + i + " = " + resultado );
+            System.out.println(num1 + " x " + i + " = " + resultado);
         }
     }
 }
