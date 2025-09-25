@@ -16,7 +16,7 @@ public class EjercicioEight {
 
             do {
                 System.out.print("¿Desea introducir más números (S/N)? ");
-                respuesta = sc.next().toUpperCase().charAt(0);
+                respuesta = sc.next().charAt(0);
             } while (respuesta != 'S' && respuesta != 'N');
 
         } while (respuesta == 'S');
