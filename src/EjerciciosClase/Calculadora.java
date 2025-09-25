@@ -1,10 +1,12 @@
+package EjerciciosClase;
+
 import java.util.Scanner;
 
 public class Calculadora {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Calculadora de suma y resta");
+        System.out.println("EjerciciosClase.Calculadora de suma y resta");
         System.out.println("Ingrese el primer número: ");
         int num1 = scanner.nextInt();
 
