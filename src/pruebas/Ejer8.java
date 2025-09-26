@@ -21,7 +21,7 @@ public class Ejer8 {
                 num = sc.nextDouble();
 
                 if (num < menor) {
-                    menor = num;
+                     menor = num;
                 }
             } else if (respuesta.equals("N")) {
                 continuar = false;
