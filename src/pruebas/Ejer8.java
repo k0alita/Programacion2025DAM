@@ -14,7 +14,7 @@ public class Ejer8 {
 
         while (continuar) {
             System.out.println("Deseas introducir mas numeros (S/N) ");
-            String respuesta = sc.next().trim().toUpperCase();
+            String respuesta = sc.next().toUpperCase();
 
             if (respuesta.equals("S")) {
                 System.out.print("Introduce un numero: ");
