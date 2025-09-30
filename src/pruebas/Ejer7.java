@@ -22,5 +22,7 @@ public class Ejer7 {
 
         double media = suma / cantNums;
         System.out.println("La media de los " + cantNums + " numeros es " + media);
+
+        sc.close();
     }
 }

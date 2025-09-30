@@ -12,9 +12,12 @@ public class Ejer6 {
 
         int producto = 0;
 
-        for (int i = 0; i < numB ; i++) {
+        for (int i = 0; i < Math.abs(numB); i++) { // Añadimos Math.abs para que de igual el negativo
             producto += numA;
         }
+
+        if (numB < 0) producto = -producto;
+
         System.out.println("El producto es: " + producto);
     }
 }
