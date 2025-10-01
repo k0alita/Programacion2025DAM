@@ -3,7 +3,7 @@ package Boletin2;
 import Boletin1.MiEntradaSalida;
 
 public class Ejercicio6 {
-    static void main() {
+    public static void main(String[] args) {
         int cantAlumnos = MiEntradaSalida.leerEnteroPositivo("Introduce el numero de alumnos: ");
 
         int aprobados = 0;
