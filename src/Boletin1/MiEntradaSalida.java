@@ -34,6 +34,16 @@ public class MiEntradaSalida {
         return a;
     }
 
+    public static int leerEnteroEntre(String mensaje) {
+        System.out.println(mensaje);
+        int a = sc.nextInt();
+        while (a < 0 || a > 10) {
+            System.out.println("El numero tiene que estar entre 0 y 10");
+            a = sc.nextInt();
+        }
+        return a;
+    }
+
     public static void main(String[] args) {
         int a = MiEntradaSalida.leerEnteroPositivo("Introduce un numero");
         System.out.printf("El numero introducido es %d ", a);
