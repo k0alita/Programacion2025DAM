@@ -44,8 +44,10 @@ public class MiEntradaSalida {
         return a;
     }
 
-    public static void main(String[] args) {
+
+    public static void main(String mensaje) {
         int a = MiEntradaSalida.leerEnteroPositivo("Introduce un numero");
         System.out.printf("El numero introducido es %d ", a);
     }
 }
+

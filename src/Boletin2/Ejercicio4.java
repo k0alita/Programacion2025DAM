@@ -3,11 +3,11 @@ package Boletin2;
 import Boletin1.MiEntradaSalida;
 
 public class Ejercicio4 {
+    private static final int MAX_INTENTOS = 5;
     public static void main(String[] args) {
         int num;
         int numAleatorio = (int) (Math.random() * 100) + 1;
         int errores = 0;
-        System.out.println(numAleatorio);
 
         System.out.println("Adivina el número entre 1 y 100 en 5 intentos");
 
@@ -28,9 +28,21 @@ public class Ejercicio4 {
 
             System.out.println("Intentos: " + errores + "/5");
 
-        } while (errores < 5);
+        } while (errores < MAX_INTENTOS);
 
         System.out.println("Intentos maximos el numero era: " + numAleatorio);
 
+    }
+
+    /*
+    Clases para Generar Numero Aleatorios y entre un rango
+     */
+
+    public static int GenerarAleatorio(int max) {
+        return (int) (Math.random() * max + 1);
+    }
+
+    public static int GenerarAleatorioEntre(int min, int max) {
+        return (int) (Math.random() * (max - min + 1)) + min;
     }
 }
