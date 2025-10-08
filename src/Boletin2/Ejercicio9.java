@@ -12,6 +12,7 @@ public class Ejercicio9 {
 
         while (num != 10) {
             num++;
+            System.out.println();
             System.out.println("Tabla del: " + num);
             for (int i = 1; i < 11; i++) {
                 int resultadoTotal = num * i;

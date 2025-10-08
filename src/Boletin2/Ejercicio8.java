@@ -12,25 +12,10 @@ import Boletin1.MiEntradaSalida;
 
 public class Ejercicio8 {
     public static void main(String[] args) {
-        double numA = MiEntradaSalida.leerEntero("Introduce el coeficiente A");
-        double numB = MiEntradaSalida.leerEntero("Introduce el coeficiente B");
-        double numC = MiEntradaSalida.leerEntero("Introduce el coeficiente C");
+        double a = MiEntradaSalida.leerEntero("Introduce el coeficiente A");
+        double b = MiEntradaSalida.leerEntero("Introduce el coeficiente B");
+        double c = MiEntradaSalida.leerEntero("Introduce el coeficiente C");
 
-        if (numA == 0) {
-            System.out.println("No es una ecuacion de segundo grado");
-        } else {
-            double delta = numB * numB - 4 * numA * numC;
-
-            if (delta > 0) {
-                double x1 = (-numB + Math.sqrt(delta)) / (2 * numA);
-                double x2 = (-numB - Math.sqrt(delta)) / (2 * numA);
-                System.out.println("La ecuacion tiene dos soluciones: x1 = " + x1 + ", x2 = " + x2);
-            } else if (delta == 0) {
-                double x = -numB / (2 * numA);
-                System.out.println("La ecuacion tiene una solucion: x = " + x);
-            } else {
-                System.out.println("La ecuacion no tiene soluciones reales");
-            }
-        }
+        System.out.println("Esta ecuación de segundo grado tiene "+MiEntradaSalida.ecuacionSegundoGrado(a,b,c, false)+" soluciones");
     }
 }

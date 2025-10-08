@@ -45,9 +45,29 @@ public class MiEntradaSalida {
     }
 
 
-    public static void main(String mensaje) {
-        int a = MiEntradaSalida.leerEnteroPositivo("Introduce un numero");
-        System.out.printf("El numero introducido es %d ", a);
+    public static int ecuacionSegundoGrado(double a, double b, double c, boolean resultados) {
+        double raiz = (b * b) - 4 * a * c;
+        if (raiz > 0) {
+            double x1 = (-b + Math.sqrt(raiz)) / (2 * a);
+            double x2 = (-b - Math.sqrt(raiz)) / (2 * a);
+            if (resultados){
+                System.out.println("x1= "+x1+ " y x2= "+x2);
+            }
+            return 2;
+        }
+        if (raiz == 0) {
+            double x3 = -b / (2 * a);
+            if (resultados) {
+                System.out.println("x3= " + x3);
+            }
+            return 1;
+        } else {
+            if (resultados) {
+                System.out.println("No tiene soluciones");
+            }
+            return 0;
+        }
     }
+
 }
 
