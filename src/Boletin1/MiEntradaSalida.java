@@ -34,14 +34,20 @@ public class MiEntradaSalida {
         return a;
     }
 
-    public static int leerEnteroEntre(String mensaje) {
-        System.out.println(mensaje);
-        int a = sc.nextInt();
-        while (a < 0 || a > 10) {
-            System.out.println("El numero tiene que estar entre 0 y 10");
-            a = sc.nextInt();
+    public static int leerEnteroEntre(String mensaje, int min, int max) {
+        if (min > max) {
+            System.out.println("El minimo es mayor que el maximo");
+            //TODO: Cambiar esto al ver las exepciones
+            return -1;
         }
-        return a;
+
+        int num = leerEntero(mensaje);
+
+        while (num < min ||num > max); {
+            System.out.printf("El numero esta fuera del rango %d-%d", min, max);
+            num = leerEntero(mensaje);
+        }
+        return num;
     }
 
 
