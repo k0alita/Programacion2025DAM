@@ -12,6 +12,7 @@ public class Ejercicio23 {
         int temporal = 0;
         int anterior = Integer.MAX_VALUE;
 
+        System.out.printf("Introduce el numero romano: ");
         numRumano = sc.nextLine();
 
         for (int i = 0; i < numRumano.length(); i++) {
