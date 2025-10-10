@@ -50,6 +50,11 @@ public class MiEntradaSalida {
         return num;
     }
 
+    public static int suma(int a, int b) {
+        int resultado = a + b;
+        return resultado;
+    }
+
 
     public static int ecuacionSegundoGrado(double a, double b, double c, boolean resultados) {
         double raiz = (b * b) - 4 * a * c;
@@ -73,6 +78,28 @@ public class MiEntradaSalida {
             }
             return 0;
         }
+    }
+
+    public static int generaAleatorio(int max) {
+        return (int) (Math.random() * max + 1);
+    }
+
+    /**
+     * Generar un número aleatorio entre un máximo y un mínimo
+     * @param min Primer número del intervalo
+     * @param max Segundo número del intervalo
+     * @param seAceptaElMaximo ¿El máximo entra en ese intervalo?
+     * @return El número genrado aleatoriamente
+     */
+    public static int generaAleatorioEntre(int min, int max, boolean seAceptaElMaximo) {
+        int random = 0, ventana;
+
+        if (seAceptaElMaximo) {
+            ventana = max - min + 1;
+        } else {
+            ventana = max - min;
+        }
+        return (int) (Math.random() * ventana) + min;
     }
 
 }
