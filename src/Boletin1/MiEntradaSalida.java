@@ -43,7 +43,7 @@ public class MiEntradaSalida {
 
         int num = leerEntero(mensaje);
 
-        while (num < min ||num > max); {
+        while (num < min ||num > max) {
             System.out.printf("El numero esta fuera del rango %d-%d", min, max);
             num = leerEntero(mensaje);
         }

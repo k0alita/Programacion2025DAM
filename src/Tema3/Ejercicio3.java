@@ -8,22 +8,29 @@ public class Ejercicio3 {
         System.out.println("Cuantos elementos quieres en el Array?: ");
         int cantNums = sc.nextInt();
 
-        int num;
-        int mayor = 0;
-        int menor = Integer.MAX_VALUE;
+        int[] numeros = new int[cantNums];
 
         for (int i = 0; i < cantNums; i++) {
-            System.out.println("Introduzca el numero " + i);
-            num = sc.nextInt();
-            if (num > mayor) {
-                mayor = num;
-            } else menor = num;
+            System.out.println("Introduzca el numero " + (i + 1) + ": ");
+            numeros[i] = sc.nextInt();
         }
 
-        int media;
+        int mayor = numeros[0], menor = numeros[0], suma = 0;
+        int contMayor = 0, contMenor = 0;
 
-        System.out.println("El numero menor es: " + menor);
-        System.out.println("El numero mayor es: " + mayor);
+        for (int num : numeros) {
+            suma += num;
+            if (num > mayor) { mayor = num; contMayor = 1; }
+            else if (num == mayor) contMayor++;
+            if (num < menor) { menor = num; contMenor = 1; }
+            else if (num == menor) contMenor++;
+        }
+
+
+
+        System.out.println("El mayor número es " + mayor + (contMayor > 1 ? " (se repite " + contMayor + " veces)" : ""));
+        System.out.println("El menor número es " + menor + (contMenor > 1 ? " (se repite " + contMenor + " veces)" : ""));
+        System.out.println("La media es: " + (double)suma / cantNums);
 
 
 
