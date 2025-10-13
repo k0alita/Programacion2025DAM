@@ -26,15 +26,9 @@ public class Ejercicio3 {
             else if (num == menor) contMenor++;
         }
 
-
-
         System.out.println("El mayor número es " + mayor + (contMayor > 1 ? " (se repite " + contMayor + " veces)" : ""));
         System.out.println("El menor número es " + menor + (contMenor > 1 ? " (se repite " + contMenor + " veces)" : ""));
         System.out.println("La media es: " + (double)suma / cantNums);
-
-
-
-
 
     }
 }
