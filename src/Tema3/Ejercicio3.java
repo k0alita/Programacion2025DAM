@@ -16,19 +16,26 @@ public class Ejercicio3 {
         }
 
         int mayor = numeros[0], menor = numeros[0], suma = 0;
-        int contMayor = 0, contMenor = 0;
 
+        int sumaMayor = 0, sumaMenor = 0;
         for (int num : numeros) {
-            suma += num;
-            if (num > mayor) { mayor = num; contMayor = 1; }
-            else if (num == mayor) contMayor++;
-            if (num < menor) { menor = num; contMenor = 1; }
-            else if (num == menor) contMenor++;
+            suma+= num;
+            if (num > mayor) {
+                mayor = num;
+            } else if (num == mayor) {
+                sumaMayor++;
+            }
+            if (num < menor) {
+                menor = num;
+            } else if (num == menor) {
+                sumaMenor++;
+            }
         }
 
-        System.out.println("El mayor número es " + mayor + (contMayor > 1 ? " (se repite " + contMayor + " veces)" : ""));
-        System.out.println("El menor número es " + menor + (contMenor > 1 ? " (se repite " + contMenor + " veces)" : ""));
-        System.out.println("La media es: " + (double)suma / cantNums);
+        double media = (double) suma / cantNums;
 
+        System.out.println("El numero mayor es: " + mayor + " y se ha repetido: " + sumaMayor + " veces");
+        System.out.println("El numero menor es: " + menor + " y se ha repetido: " + sumaMenor + " veces");
+        System.out.println("La media es: " + media);
     }
 }
