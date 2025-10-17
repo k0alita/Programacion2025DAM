@@ -9,11 +9,6 @@ public class Ejercicio9 {
     public static void posicionArray(int buscar, boolean reverse) {
         int[] numeros = {7, 4, 3, 1, 9, 5, 6, 8, 2, 10};
 
-        Arrays.sort(numeros);
-
-        if (reverse) {
-        }
-
         boolean encontrado = false;
 
         for (int i = 0; i < numeros.length; i++) {

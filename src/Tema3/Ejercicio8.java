@@ -3,24 +3,25 @@ package Tema3;
 import Boletin1.MiEntradaSalida;
 
 public class Ejercicio8 {
-    public static void posicionArray(int buscar) {
-        int[] numeros = {7, 4, 3, 1, 9, 5, 6, 8, 2, 10};
-
-        boolean encontrado = false;
+    public static int posicionArray(int buscar) {
+        int[] numeros = {2,7,5,3,4,6,1,4,7};
 
         for (int i = 0; i < numeros.length; i++) {
             if (numeros[i] == buscar) {
-                System.out.println("El numero buscando ocupa la posicion: " + i);
-                encontrado = true;
+                return i + 1;
             }
         }
-        if (!encontrado) {
-            System.out.println("-1");
-        }
+           return -1;
     }
 
 
     public static void main(String[] args) {
-        posicionArray(4);
+        int numero = MiEntradaSalida.leerEntero("Dime un numero: ");
+        int pos;
+        if ((pos = posicionArray(numero)) == -1 ){
+            System.out.println("El numero no esta en el array");
+        } else {
+            System.out.printf("El numero esta en el array, en la posicion: %d", pos);
+        }
     }
 }
