@@ -32,7 +32,7 @@ public class Ejercicio11 {
         return false;
     }
     public static int[] unirArrays(int[] array1, int[] array2){
-        int size =0;
+        int size = 0;
         int[] comunes = new int[array1.length];
         int comparacion = Math.min(array1.length, array2.length);
         for (int i = 0; i < comparacion; i++) {

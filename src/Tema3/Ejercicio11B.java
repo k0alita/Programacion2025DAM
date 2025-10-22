@@ -7,7 +7,7 @@ import java.util.Set;
 public class Ejercicio11B {
 
     /*
-     * Crea un método que acepte 2 arrays, y devuelva un nuevo array con los elementos
+     * Crea un metodo que acepte 2 arrays, y devuelva un nuevo array con los elementos
      * que ambos arrays tienen en común (la intersección).
      */
 
@@ -19,17 +19,22 @@ public class Ejercicio11B {
         System.out.println("Array 1: " + Arrays.toString(array1));
         System.out.println("Array 2: " + Arrays.toString(array2));
 
+        //Creamos un array temporal (array3) con el tamaño justo y necesario para guardar la intersecccion
+        //de los dos arrays originales
+        // Math.min calcula la longitud del arrray mas corto entre array1 y array2 garantiza que haya esàcop
+        // suficiente para todos los elementos comunes.
         int[] array3 = new int[Math.min(array1.length, array2.length)];
         int elementosArrayFinal = 0;
 
-        for (int i = 0; i < array1.length; i++) {
-            if (contieneElemento(array2, array1[i]) && !contieneElemento(array3, array1[i], elementosArrayFinal)){
-                array3[elementosArrayFinal] = array1[i];
+        for (int j : array1) {
+            if (contieneElemento(array2, j) && !contieneElemento(array3, j, elementosArrayFinal)) {
+                array3[elementosArrayFinal] = j;
                 elementosArrayFinal++;
             }
         }
 
         int[] arrayADevolver = new int[elementosArrayFinal];
+
         for (int i = 0; i < elementosArrayFinal; i++){
             arrayADevolver[i] = array3[i];
         }
