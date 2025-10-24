@@ -7,9 +7,6 @@ misma, leídos por filas, empezando por los últimos índices:
 0 2 7
  */
 
-import java.util.Arrays;
-import java.util.Collection;
-
 public class Ejercicio4 {
     public static void main(String[] args) {
         int[][] matriz = {{1,2,3}, {4,5,6}};
