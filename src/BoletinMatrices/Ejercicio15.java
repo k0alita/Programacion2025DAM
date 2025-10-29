@@ -18,24 +18,15 @@ import java.util.Scanner;
 
 
 public class Ejercicio15 {
-
-    final int FILA = 0;
-    final int COLUMNA = 0;
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Dime las cordenada X de la matriz");
-        FILA = sc.nextInt();
-        System.out.println("Dime la cordenada Y de la matriz");
-        COLUMNA = sc.nextInt();
-
-        System.out.println(fila + " , " + columna);
+        int[][] matriz = {{1,2,23,2,2,2,2,2,2}, {1,2,23,2,2,2,2,2,2}};
+        System.out.println("La posicion 0 , 5 ocupa el numero " + posicionEnMatriz(matriz,0, 5));
     }
 
-//    public static int encontrarCordenadas(int[][] matriz) {
-//        for (int i = 0; i < matriz.length; i++) {
-//            if (i == )
-//        }
-//
-//        return
-//    }
+    public static int posicionEnMatriz(int[][] matriz, int i, int j) {
+        if (matriz == null || matriz.length == 0) {
+            return -1; // error
+        }
+        return matriz[0].length * i + j + 1;
+    }
 }
