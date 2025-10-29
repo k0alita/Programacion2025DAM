@@ -31,11 +31,11 @@ public class Ejercicio15 {
         System.out.println(fila + " , " + columna);
     }
 
-    public static int encontrarCordenadas(int[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
-            if (i == )
-        }
-
-        return
-    }
+//    public static int encontrarCordenadas(int[][] matriz) {
+//        for (int i = 0; i < matriz.length; i++) {
+//            if (i == )
+//        }
+//
+//        return
+//    }
 }
