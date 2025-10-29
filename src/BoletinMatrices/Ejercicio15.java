@@ -26,7 +26,7 @@ public class Ejercicio15 {
         System.out.println("Dime las cordenada X de la matriz");
         FILA = sc.nextInt();
         System.out.println("Dime la cordenada Y de la matriz");
-        columna = sc.nextInt();
+        COLUMNA = sc.nextInt();
 
         System.out.println(fila + " , " + columna);
     }
