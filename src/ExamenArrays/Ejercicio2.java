@@ -60,8 +60,8 @@ public class Ejercicio2 {
     }
     public static boolean hayAgua(int[][] jardin, int fila, int col) {
         for (int i = fila - 1; i < fila + 1; i++) {
-            for (int j = fila -1; j < fila + 1; j++) {
-                if (j > 0 ) {
+            for (int j = col -1; j < col + 1; j++) {
+                if (j > 0 || i > 0) {
                     if (jardin[i][j] == 2) {
                         return true;
                     }
