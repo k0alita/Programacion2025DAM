@@ -1,5 +1,8 @@
 package Objetos.Ejercicio2;
 
+import Objetos.Exceptions.IngresoException;
+import Objetos.Exceptions.RetiroException;
+
 public class Cuenta {
     private double dinero;
     private int ingresosTotales;
@@ -28,30 +31,32 @@ public class Cuenta {
     }
 
 
-    public double retirarDinero(double retiro) {
+    public double retirarDinero(double retiro) throws RetiroException {
         double dineroResultante;
 
-        System.out.println("Tienes " + dinero + "€ y se ha retirado un total de " + retiro + "€");
-
-        dineroResultante = getDinero() - retiro;
+        if (getDinero() < retiro) {
+            throw new RetiroException("El saldo es menor al retiro solicitado");
+        } else if (retiro < 0) {
+            throw new RetiroException("No puedes retirar dinero negativo");
+        } else {
+            dineroResultante = getDinero() - retiro;
+        }
         setDinero(dineroResultante);
-
         retirosTotales++;
 
-        System.out.println("Saldo resultante: " + dineroResultante + "€");
         return dineroResultante;
     }
-    public double ingresoDinero(double ingreso) {
+    public double ingresoDinero(double ingreso) throws IngresoException {
         double dineroResultante;
 
-        System.out.println("Tienes " + dinero + "€ y se ha ingresado un total de " + ingreso + "€");
-
-        dineroResultante = getDinero() + ingreso;
+        if (ingreso < 0) {
+            throw new IngresoException("No puedes retirar dinero negativo");
+        } else {
+            dineroResultante = getDinero() + ingreso;
+        }
         setDinero(dineroResultante);
-
         ingresosTotales++;
 
-        System.out.println("Saldo resultante: " + dineroResultante + "€");
         return dineroResultante;
     }
 

@@ -1,5 +1,8 @@
 package Objetos.Ejercicio2;
 
+import Objetos.Exceptions.IngresoException;
+import Objetos.Exceptions.RetiroException;
+
 import java.util.Scanner;
 
 public class Principal {
@@ -23,12 +26,22 @@ public class Principal {
                 case 1:
                     System.out.print("Que cantidad quieres retirar: ");
                     double retiro = sc.nextDouble();
-                    c.retirarDinero(retiro);
+                    try {
+                        c.retirarDinero(retiro);
+                    } catch (RetiroException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    System.out.println("Tienes " + c.getDinero() + "€ despues del retiro de " + retiro + "€");
                     break;
                 case 2:
                     System.out.print("Que cantidad quieres ingresar: ");
                     double ingreso = sc.nextDouble();
-                    c.ingresoDinero(ingreso);
+                    try {
+                        c.ingresoDinero(ingreso);
+                    } catch (IngresoException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    System.out.println("Tienes " + c.getDinero() + "€ despues del ingreso de " + ingreso + "€");
                     break;
                 case 3:
                     System.out.println("Saldo Total: " + c.getDinero());
