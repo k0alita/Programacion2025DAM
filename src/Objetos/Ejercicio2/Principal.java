@@ -1,19 +1,18 @@
 package Objetos.Ejercicio2;
 
+import Objetos.Exceptions.CuentaException;
 import Objetos.Exceptions.IngresoException;
 import Objetos.Exceptions.RetiroException;
 
 import java.util.Scanner;
 
 public class Principal {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CuentaException {
         Cuenta c = new Cuenta();
 
         Scanner sc = new Scanner(System.in);
 
         boolean operando = true;
-
-        c.setDinero(500);
 
         while (operando) {
             System.out.println("Que desea hacer en su cuenta: ");
