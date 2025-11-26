@@ -1,6 +1,6 @@
 package Objetos.Objetos2.Ejercicio2;
 
-import Objetos.Objetos2.Ejercicio2.Exceptions.CompatibilidadException;
+import Objetos.Objetos2.Ejercicio1.Exceptions.PersonaException;
 
 public class PlacaBase {
     private String marca;
@@ -33,11 +33,11 @@ public class PlacaBase {
         this.socket = socket;
     }
 
-    public boolean procesadorCompatible(String socketPlaca, String socketMicro) throws CompatibilidadException {
+    public boolean procesadorCompatible(String socketPlaca, String socketMicro) throws PersonaException {
         if (socketPlaca.equals(socketMicro)) {
             return true;
         }
-        throw new CompatibilidadException("El socket no es compatible entre ambos componentes");
+        throw new PersonaException("El socket no es compatible entre ambos componentes");
     }
 }
 

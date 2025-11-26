@@ -1,5 +1,7 @@
 package Objetos.Objetos2.Ejercicio1;
 
+import Objetos.Objetos2.Ejercicio1.Exceptions.PersonaException;
+
 import java.time.LocalDate;
 import java.util.GregorianCalendar;
 
@@ -11,13 +13,20 @@ public class Persona {
     private float altura;
     private float peso;
 
-    public Persona(){
-        nombre = "Alejandro";
-        fecha_nacimiento = LocalDate.ofEpochDay(2007-10-28);
-        DNI = 29623355;
-        sexo = 'h';
-        altura = 168;
-        peso = 50;
+    public Persona(String nombre, int dni, char sexo, float peso, float altura, LocalDate fecha_nacimiento) throws PersonaException{
+        this.DNI = dni;
+        if (altura < 0) {
+            throw new PersonaException("No puedes tener una altura negativa");
+        }
+        this.altura = altura;
+        this.sexo = sexo;
+        this.nombre = nombre;
+        this.fecha_nacimiento = fecha_nacimiento;
+
+        if (peso < 0) {
+            throw new PersonaException("No puedes tener un peso negativo");
+        }
+        this.peso = peso;
     }
 
     public float getAltura() {

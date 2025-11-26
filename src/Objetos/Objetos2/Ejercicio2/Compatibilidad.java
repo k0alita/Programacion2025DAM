@@ -1,16 +1,12 @@
 package Objetos.Objetos2.Ejercicio2;
 
-import Objetos.Objetos2.Ejercicio2.DiscoDuro;
-import Objetos.Objetos2.Ejercicio2.Exceptions.CompatibilidadException;
-import Objetos.Objetos2.Ejercicio2.MicroProcesador;
-import Objetos.Objetos2.Ejercicio2.PlacaBase;
-import Objetos.Objetos2.Ejercicio2.TarjetaGrafica;
+import Objetos.Objetos2.Ejercicio1.Exceptions.PersonaException;
 
 import java.util.Scanner;
 
 public class Compatibilidad {
 
-    public static void main(String[] args) throws CompatibilidadException {
+    public static void main(String[] args) throws PersonaException {
         Scanner sc = new Scanner(System.in);
         //Componentes
         PlacaBase placa = new PlacaBase();
@@ -57,7 +53,7 @@ public class Compatibilidad {
         micro.setModelo(opcion);
         System.out.print("Introduce el numero de nucleos: ");
         opcionnums = sc.nextInt();
-        micro.setNum_nuc(opcionnums);
+        micro.setNum_nucl(opcionnums);
         System.out.print("Introduce la velocidad base: ");
         opcionnums = sc.nextInt();
         micro.setVelocidad_base(opcionnums);
@@ -107,7 +103,7 @@ public class Compatibilidad {
         System.out.println("Marca: " + micro.getMarca());
         System.out.println("Socket: " + micro.getSocket());
         System.out.println("Modelo: " + micro.getModelo());
-        System.out.println("Nº nucleos: " + micro.getNum_nuc());
+        System.out.println("Nº nucleos: " + micro.getNum_nucl());
         System.out.println("Vel Base: " + micro.getVelocidad_base());
         System.out.println("Datos Grafica: ");
         System.out.println("Marca: " + grafica.getMarca());
@@ -121,13 +117,13 @@ public class Compatibilidad {
         System.out.println("Capacidad: " + disco.getCapaciodad());
     }
 
-    public static void comprobarCompatibilidad(PlacaBase placa, MicroProcesador micro, Scanner sc) throws CompatibilidadException {
+    public static void comprobarCompatibilidad(PlacaBase placa, MicroProcesador micro, Scanner sc) throws PersonaException {
         System.out.println("Compatibilidad del ordenador:");
         try {
             if (placa.procesadorCompatible(placa.getSocket(), micro.getSocket())) {
                 System.out.println("Modelo de placa y procesador compatibles.");
             }
-        } catch (CompatibilidadException e) {
+        } catch (PersonaException e) {
             System.out.println(e.getMessage());
         }
     }

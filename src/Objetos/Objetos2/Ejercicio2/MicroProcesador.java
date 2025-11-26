@@ -3,7 +3,7 @@ package Objetos.Objetos2.Ejercicio2;
 public class MicroProcesador {
     private String marca;
     private String modelo;
-    private int num_nuc;
+    private int num_nucl;
     private float velocidad_base;
     private String socket;
 
@@ -23,12 +23,12 @@ public class MicroProcesador {
         this.modelo = modelo;
     }
 
-    public int getNum_nuc() {
-        return num_nuc;
+    public int getNum_nucl() {
+        return num_nucl;
     }
 
-    public void setNum_nuc(int num_nuc) {
-        this.num_nuc = num_nuc;
+    public void setNum_nucl(int num_nucl) {
+        this.num_nucl = num_nucl;
     }
 
     public float getVelocidad_base() {
