@@ -4,9 +4,11 @@ import Objetos.Objetos2.Ejercicio4.Exceptions.MiEntradaSalidaException;
 
 public class Main {
     public static void main(String[] args) throws MiEntradaSalidaException {
-        MiEntradaSalida.solicitarCaracter("Introduce un caracter");
+//        MiEntradaSalida.solicitarCaracterSN("Introduce un caracter S o N");
+//
+//        MiEntradaSalida.solicitarCaracter("Introduce un caracter");
 
-        MiEntradaSalida.solicitarEntero("Introduce un numero: ");
+//        MiEntradaSalida.solicitarEntero("Introduce un numero: ");
 
         MiEntradaSalida.solicitarEnteroPositivo("Introduce un numero positivo: ");
 

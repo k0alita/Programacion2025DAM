@@ -11,20 +11,11 @@ public class MiEntradaSalida {
         return sc.nextInt();
     }
     public static int solicitarEnteroPositivo(String mensaje) {
-        Scanner scanner = new Scanner(System.in);
-        int numero = 0;
-        boolean valido = false;
+        int numero = sc.nextInt();
 
-        while (!valido) {
-            System.out.println(mensaje);
+        while (numero < 0) {
+            System.out.println("Introduce un numero positivo");
             numero = sc.nextInt();
-
-            if (numero > 0) {
-                valido = true;
-            } else {
-                System.out.println("Error: El número debe ser positivo. Inténtalo de nuevo.");
-            }
-
         }
 
         return numero;
@@ -64,6 +55,31 @@ public class MiEntradaSalida {
             caracter = entrada.charAt(0);
             valido = true;
 
+        }
+
+        return caracter;
+    }
+
+    public static char solicitarCaracterSN(String mensaje) {
+        char caracter = '\0';
+        boolean valido = false;
+
+        while (!valido) {
+            System.out.print(mensaje);
+            String entrada = sc.nextLine().toUpperCase().trim();
+
+            if (entrada.isEmpty()) {
+                System.out.println("Error: Debes introducir un carácter.");
+                continue;
+            }
+
+            caracter = entrada.charAt(0);
+
+            if (caracter == 'S' || caracter == 'N') {
+                valido = true;
+            } else {
+                System.out.println("Error: Debes introducir 'S' o 'N'.");
+            }
         }
 
         return caracter;
