@@ -38,14 +38,10 @@ public class Producto {
         this.precioSI = precioSI;
     }
 
-    public void consultaMod(String tipo) throws ProductoException {
-        if (tipo.equals("consultar")) {
-
-        } else if (tipo.equals("modificar")) {
-
-        } else {
-            throw new ProductoException("Tipo no valido");
-        }
+    public void modificarProducto(int codigo, String descripcion, double precioSI) throws ProductoException {
+        setCodigo(codigo);
+        setDescripcion(descripcion);
+        setPrecioSI(precioSI);
     }
 
     public double calcularPrecio() {
