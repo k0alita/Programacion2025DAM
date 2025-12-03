@@ -1,15 +1,34 @@
 package Objetos.Objetos3.Ejercicio;
 
+import Objetos.Objetos3.Ejercicio.Exceptions.BarajaException;
+
 public class Juego {
-    private Carta[] baraja;
-    private int cartasActuales;
+    public static void main(String[] args) {
+        Baraja barajaEspañola = new Baraja();
+        barajaEspañola.mostrarBaraja();
+        System.out.println();
+        barajaEspañola.barajar();
+        System.out.println();
+        barajaEspañola.mostrarBaraja();
+        System.out.println();
+        System.out.println("En la baraja quedan " + barajaEspañola.cartasRestantes());
 
-    public Juego() {
-        String[] palos = {"Corazones", "Diamantes", "Tréboles", "Picas"};
-        String[] numeros = {"As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        try {
+            barajaEspañola.repartir(4, 7);
+            System.out.println("¡Hecho!");
+        } catch (BarajaException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println();
+        System.out.println("En la baraja quedan " + barajaEspañola.cartasRestantes());
+        System.out.println();
+        try {
+            barajaEspañola.repartir(4, 7);
+            System.out.println("¡Hecho!");
+        } catch (BarajaException e) {
+            System.out.println(e.getMessage());
+        }
 
-        baraja = new Carta[52];
-        cartasActuales = 52;
+
     }
 }
-
