@@ -3,6 +3,7 @@ package Objetos.Objetos3.Ejercicio.Ejercicio2;
 import Objetos.Objetos2.Ejercicio1.Exceptions.PersonaException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Persona {
     private String nombre;
@@ -43,7 +44,7 @@ public class Persona {
         }
 
         mensaje.setRemitente(this);
-        mensaje.setFechaEnvio(LocalDate.now());
+        mensaje.setFechaEnvio(LocalDateTime.now());
 
         mensajesEnviados[contadorEnviados] = mensaje;
         contadorEnviados++;

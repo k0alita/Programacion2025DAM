@@ -10,6 +10,13 @@ public class Main {
             try {
                 persona.enviarMensaje(new Mensaje("Pepillo", "Pepe", persona2));
                 persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
+                persona2.enviarMensaje(new Mensaje("Javillllo", "Javiiii", persona));
             } catch (PersonaException e) {
                 System.out.println(e.getMessage());
             }
