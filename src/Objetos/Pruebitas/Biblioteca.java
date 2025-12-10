@@ -44,13 +44,11 @@ public class Biblioteca {
 
         peliculas[contador] = new Pelicula(titulo, año_estreno, director, presupuesto, recaudacion, sinopsis, etiquetas);
         contador++;
-
-        System.out.println("\nPelícula añadida correctamente.");
     }
 
     public void consultarBiblioteca() throws PeliculaExceptions{
         if (contador == 0) {
-            throw new PeliculaExceptions("La biblioteca esta vacia");
+            throw new PeliculaExceptions("Error: La biblioteca esta vacia");
         }
 
         System.out.println("------- BIBLIOTECA -------");
@@ -66,7 +64,7 @@ public class Biblioteca {
             if (peliculas[i].getEtiquetas().toLowerCase().contains(etiqueta.toLowerCase())) {
                 System.out.println(peliculas[i]);
             } else {
-                throw new PeliculaExceptions("No se han encontrado peliculas con esa etiqueta");
+                throw new PeliculaExceptions("Error: No se han encontrado peliculas con esa etiqueta");
             }
         }
     }
@@ -76,17 +74,17 @@ public class Biblioteca {
             if (peliculas[i].getTitulo().equalsIgnoreCase(titulo)) {
                 System.out.println(peliculas[i]);
             } else {
-                throw new PeliculaExceptions("No se han encontrado peliculas con ese titulo");
+                throw new PeliculaExceptions("Error: No se han encontrado peliculas con ese titulo");
             }
         }
     }
 
     public void buscarPorPresupuesto(double presupuesto) throws PeliculaExceptions {
             for (int i = 0; i < contador; i++) {
-                if (peliculas[i].getPresupuesto() >= presupuesto) {
+                if (peliculas[i].getPresupuesto() <= presupuesto) {
                     System.out.println("• " + peliculas[i].getTitulo() + " (Presupuesto: " + peliculas[i].getPresupuesto() + ")");
             } else {
-                throw new PeliculaExceptions("No se han encontrado peliculas con este presupuesto");
+                throw new PeliculaExceptions("Error: No se han encontrado peliculas con este presupuesto");
             }
         }
     }

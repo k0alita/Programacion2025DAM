@@ -23,6 +23,7 @@ public class Main {
                 case 1:
                     try {
                         biblioteca.añadirPelicula(sc);
+                        System.out.println("\nPelícula añadida correctamente.");
                     } catch (PeliculaExceptions e) {
                         System.out.println(e.getMessage());
                     }

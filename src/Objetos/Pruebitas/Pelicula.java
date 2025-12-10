@@ -115,8 +115,8 @@ public class Pelicula {
                 "\nTítulo: " + titulo +
                 "\nAño: " + año_estreno +
                 "\nDirector: " + director +
-                "\nPresupuesto: " + presupuesto + " millones $" +
-                "\nRecaudación: " + recaudacion + " millones $" +
+                "\nPresupuesto: " + presupuesto + " millones €" +
+                "\nRecaudación: " + recaudacion + " millones €" +
                 "\nSinopsis: " + sinopsis +
                 "\nEtiquetas: " + etiquetas +
                 "\nValoración: " + String.format("%.2f", valoracion) + "/10\n";
