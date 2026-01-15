@@ -1,84 +1,110 @@
 package Trimestre2.Boletin51.Ejercicio1.Ejercicio3;
 
-import Trimestre2.Boletin51.Ejercicio1.Ejercicio3.Exceptions.JuegoRol;
+import Trimestre2.Boletin51.Ejercicio1.Ejercicio3.Exceptions.PersonajeException;
 
 public class Personaje {
     private String nombre;
-    private String raza;
-    private int fuerza;
-    private int inteligencia;
-    private int vida_max;
-    private int vida_act;
+    private String raza;          // "humano", "elfo", "enano", "orco"
+    private int fuerza;           // 0-20
+    private int inteligencia;     // 0-20
+    private int puntosVidaMax;    // 0-100
+    private int puntosVidaAct;    // 0 - puntosVidaMax
 
-    public Personaje(String nombre, String raza, int fuerza, int inteligencia, int vida_max) throws JuegoRol {
-        this.nombre = nombre;
-        this.raza = raza;
+    public Personaje(String nombre, String raza, int fuerza,
+                     int inteligencia, int puntosVidaMax) throws PersonajeException {
+        setNombre(nombre);
+        setRaza(raza);
         setFuerza(fuerza);
         setInteligencia(inteligencia);
-        setVida_max(vida_max);
-        setVida_act(vida_max);
+        setPuntosVidaMax(puntosVidaMax);
+        // al crear, los actuales = máximos
+        this.puntosVidaAct = this.puntosVidaMax;
     }
 
+    // GETTERS
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getRaza() {
         return raza;
     }
 
-    public void setRaza(String raza) throws JuegoRol {
-        if (!raza.equalsIgnoreCase("humano") &&
-                !raza.equalsIgnoreCase("elfo") &&
-                !raza.equalsIgnoreCase("enano") &&
-                !raza.equalsIgnoreCase("orco")) {
-            throw new JuegoRol("Raza no válida. Debe ser humano, elfo, enano u orco");
-        }
-        this.raza = raza;
-    }
-
     public int getFuerza() {
         return fuerza;
-    }
-
-    public void setFuerza(int fuerza) throws JuegoRol {
-        if (fuerza < 0 | fuerza > 20) {
-            throw new JuegoRol("El valor no es valido. Escribe un numero entre 0 y 20");
-        } else this.fuerza = fuerza;
     }
 
     public int getInteligencia() {
         return inteligencia;
     }
 
-    public void setInteligencia(int inteligencia) throws JuegoRol {
-        if (inteligencia < 0 | inteligencia > 20) {
-            throw new JuegoRol("El valor no es valido. Escribe un numero entre 0 y 20");
-        } else this.inteligencia = inteligencia;
+    public int getPuntosVidaMax() {
+        return puntosVidaMax;
     }
 
-    public int getVida_max() {
-        return vida_max;
+    public int getPuntosVidaAct() {
+        return puntosVidaAct;
+    }
+    public void setNombre(String nombre) throws PersonajeException {
+        if (nombre == null || nombre.isBlank()) {
+            throw new PersonajeException("El nombre no puede estar vacío");
+        }
+        this.nombre = nombre;
     }
 
-    public void setVida_max(int vida_max) throws JuegoRol {
-        if (vida_max < 0 | vida_max > 100) {
-            throw new JuegoRol("El valor no es valido. Escribe un numero entre 0 y 100");
-        } else this.vida_max = vida_max;
+    public void setRaza(String raza) throws PersonajeException {
+        if (raza == null) {
+            throw new PersonajeException("La raza no puede ser null");
+        }
+        String r = raza.toLowerCase();
+        if (!r.equals("humano") && !r.equals("elfo") &&
+                !r.equals("enano") && !r.equals("orco")) {
+            throw new PersonajeException("Raza no válida: " + raza);
+        }
+        this.raza = r;
     }
 
-    public int getVida_act() {
-        return vida_act;
+    public void setFuerza(int fuerza) throws PersonajeException {
+        if (fuerza < 0 || fuerza > 20) {
+            throw new PersonajeException("La fuerza debe estar entre 0 y 20");
+        }
+        this.fuerza = fuerza;
     }
 
-    public void setVida_act(int vida_act) throws  JuegoRol {
-        if (vida_act < 0 | vida_act > getVida_max()) {
-            throw new JuegoRol("El valor no es valido. Escribe un numero entre 0 y " + vida_max);
-        } else this.vida_act = vida_act;
+    public void setInteligencia(int inteligencia) throws PersonajeException {
+        if (inteligencia < 0 || inteligencia > 20) {
+            throw new PersonajeException("La inteligencia debe estar entre 0 y 20");
+        }
+        this.inteligencia = inteligencia;
+    }
+
+    public void setPuntosVidaMax(int puntosVidaMax) throws PersonajeException {
+        if (puntosVidaMax < 0 || puntosVidaMax > 100) {
+            throw new PersonajeException("Los puntos de vida máximos deben estar entre 0 y 100");
+        }
+        this.puntosVidaMax = puntosVidaMax;
+        if (this.puntosVidaAct > puntosVidaMax) {
+            this.puntosVidaAct = puntosVidaMax;
+        }
+    }
+
+    public void setPuntosVidaAct(int puntosVidaAct) throws PersonajeException {
+        if (puntosVidaAct < 0 || puntosVidaAct > this.puntosVidaMax) {
+            throw new PersonajeException("Los puntos de vida actuales deben estar entre 0 y los máximos");
+        }
+        this.puntosVidaAct = puntosVidaAct;
+    }
+
+    // Método de utilidad para cambiar vida sin lanzar excepción desde fuera
+    public void modificarVida(int delta) {
+        int nuevaVida = this.puntosVidaAct + delta;
+        if (nuevaVida < 0) {
+            nuevaVida = 0;
+        }
+        if (nuevaVida > this.puntosVidaMax) {
+            nuevaVida = this.puntosVidaMax;
+        }
+        this.puntosVidaAct = nuevaVida;
     }
 
     @Override
@@ -88,8 +114,7 @@ public class Personaje {
                 ", raza='" + raza + '\'' +
                 ", fuerza=" + fuerza +
                 ", inteligencia=" + inteligencia +
-                ", vida_max=" + vida_max +
-                ", vida_act=" + vida_act +
+                ", vida=" + puntosVidaAct + "/" + puntosVidaMax +
                 '}';
     }
 }
