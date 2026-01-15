@@ -1,6 +1,6 @@
 package Trimestre2.Boletin51.Ejercicio1.Ejercicio3;
 
-import Trimestre2.Boletin51.Ejercicio1.Ejercicio3.Exceptions.PersonajeException;
+import Trimestre2.Boletin51.Ejercicio1.Examen.exceptions.MuerteException;
 
 public class Personaje {
     private String nombre;
@@ -11,7 +11,7 @@ public class Personaje {
     private int puntosVidaAct;    // 0 - puntosVidaMax
 
     public Personaje(String nombre, String raza, int fuerza,
-                     int inteligencia, int puntosVidaMax) throws PersonajeException {
+                     int inteligencia, int puntosVidaMax) throws MuerteException {
         setNombre(nombre);
         setRaza(raza);
         setFuerza(fuerza);
@@ -45,42 +45,42 @@ public class Personaje {
     public int getPuntosVidaAct() {
         return puntosVidaAct;
     }
-    public void setNombre(String nombre) throws PersonajeException {
+    public void setNombre(String nombre) throws MuerteException {
         if (nombre == null || nombre.isBlank()) {
-            throw new PersonajeException("El nombre no puede estar vacío");
+            throw new MuerteException("El nombre no puede estar vacío");
         }
         this.nombre = nombre;
     }
 
-    public void setRaza(String raza) throws PersonajeException {
+    public void setRaza(String raza) throws MuerteException {
         if (raza == null) {
-            throw new PersonajeException("La raza no puede ser null");
+            throw new MuerteException("La raza no puede ser null");
         }
         String r = raza.toLowerCase();
         if (!r.equals("humano") && !r.equals("elfo") &&
                 !r.equals("enano") && !r.equals("orco")) {
-            throw new PersonajeException("Raza no válida: " + raza);
+            throw new MuerteException("Raza no válida: " + raza);
         }
         this.raza = r;
     }
 
-    public void setFuerza(int fuerza) throws PersonajeException {
+    public void setFuerza(int fuerza) throws MuerteException {
         if (fuerza < 0 || fuerza > 20) {
-            throw new PersonajeException("La fuerza debe estar entre 0 y 20");
+            throw new MuerteException("La fuerza debe estar entre 0 y 20");
         }
         this.fuerza = fuerza;
     }
 
-    public void setInteligencia(int inteligencia) throws PersonajeException {
+    public void setInteligencia(int inteligencia) throws MuerteException {
         if (inteligencia < 0 || inteligencia > 20) {
-            throw new PersonajeException("La inteligencia debe estar entre 0 y 20");
+            throw new MuerteException("La inteligencia debe estar entre 0 y 20");
         }
         this.inteligencia = inteligencia;
     }
 
-    public void setPuntosVidaMax(int puntosVidaMax) throws PersonajeException {
+    public void setPuntosVidaMax(int puntosVidaMax) throws MuerteException {
         if (puntosVidaMax < 0 || puntosVidaMax > 100) {
-            throw new PersonajeException("Los puntos de vida máximos deben estar entre 0 y 100");
+            throw new MuerteException("Los puntos de vida máximos deben estar entre 0 y 100");
         }
         this.puntosVidaMax = puntosVidaMax;
         if (this.puntosVidaAct > puntosVidaMax) {
@@ -88,9 +88,9 @@ public class Personaje {
         }
     }
 
-    public void setPuntosVidaAct(int puntosVidaAct) throws PersonajeException {
+    public void setPuntosVidaAct(int puntosVidaAct) throws MuerteException {
         if (puntosVidaAct < 0 || puntosVidaAct > this.puntosVidaMax) {
-            throw new PersonajeException("Los puntos de vida actuales deben estar entre 0 y los máximos");
+            throw new MuerteException("Los puntos de vida actuales deben estar entre 0 y los máximos");
         }
         this.puntosVidaAct = puntosVidaAct;
     }

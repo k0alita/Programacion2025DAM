@@ -1,28 +1,28 @@
 package Trimestre2.Boletin51.Ejercicio1.Ejercicio3;
 
-import Trimestre2.Boletin51.Ejercicio1.Ejercicio3.Exceptions.PersonajeException;
+import Trimestre2.Boletin51.Ejercicio1.Examen.exceptions.MuerteException;
 
 public class Mago extends Personaje {
     private static final int TAMANO_HECHIZOS = 4;
     private String[] hechizos;
 
     public Mago(String nombre, String raza, int fuerza,
-                int inteligencia, int puntosVidaMax) throws PersonajeException {
+                int inteligencia, int puntosVidaMax) throws MuerteException {
         super(nombre, raza, fuerza, inteligencia, puntosVidaMax);
 
         if (inteligencia < 17) {
-            throw new PersonajeException("Un Mago debe tener inteligencia >= 17");
+            throw new MuerteException("Un Mago debe tener inteligencia >= 17");
         }
         if (fuerza > 15) {
-            throw new PersonajeException("Un Mago debe tener fuerza <= 15");
+            throw new MuerteException("Un Mago debe tener fuerza <= 15");
         }
 
         hechizos = new String[TAMANO_HECHIZOS];
     }
 
-    public void aprendeHechizo(String hechizo) throws PersonajeException {
+    public void aprendeHechizo(String hechizo) throws MuerteException {
         if (hechizo == null || hechizo.isBlank()) {
-            throw new PersonajeException("El nombre del hechizo no puede estar vacío");
+            throw new MuerteException("El nombre del hechizo no puede estar vacío");
         }
         for (int i = 0; i < hechizos.length; i++) {
             if (hechizos[i] == null) {
@@ -30,15 +30,15 @@ public class Mago extends Personaje {
                 return;
             }
         }
-        throw new PersonajeException("El mago ya tiene memorizados 4 hechizos");
+        throw new MuerteException("El mago ya tiene memorizados 4 hechizos");
     }
 
-    public void lanzaHechizo(Personaje objetivo, String hechizo) throws PersonajeException {
+    public void lanzaHechizo(Personaje objetivo, String hechizo) throws MuerteException {
         if (objetivo == null) {
-            throw new PersonajeException("El objetivo no puede ser null");
+            throw new MuerteException("El objetivo no puede ser null");
         }
         if (hechizo == null || hechizo.isBlank()) {
-            throw new PersonajeException("El nombre del hechizo no puede estar vacío");
+            throw new MuerteException("El nombre del hechizo no puede estar vacío");
         }
 
         int indice = -1;
@@ -50,7 +50,7 @@ public class Mago extends Personaje {
         }
 
         if (indice == -1) {
-            throw new PersonajeException("El mago no conoce el hechizo: " + hechizo);
+            throw new MuerteException("El mago no conoce el hechizo: " + hechizo);
         }
 
         objetivo.modificarVida(-10);

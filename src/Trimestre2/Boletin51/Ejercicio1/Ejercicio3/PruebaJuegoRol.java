@@ -1,6 +1,6 @@
 package Trimestre2.Boletin51.Ejercicio1.Ejercicio3;
 
-import Trimestre2.Boletin51.Ejercicio1.Ejercicio3.Exceptions.PersonajeException;
+import Trimestre2.Boletin51.Ejercicio1.Examen.exceptions.MuerteException;
 
 public class PruebaJuegoRol {
 
@@ -38,7 +38,7 @@ public class PruebaJuegoRol {
             System.out.println(magoB);
             System.out.println(clerigoC);
 
-        } catch (PersonajeException e) {
+        } catch (MuerteException e) {
             System.err.println("Error de personaje: " + e.getMessage());
         }
     }
